@@ -1,26 +1,34 @@
-version: '3'
+version: '3.7'
+
 services:
   app:
-    working_dir: /app
     build: src
+    working_dir: /app
     ports:
-      - "5000:5000"
+      - 5000:5000
     volumes:
       - ./src:/app
       - ./src/migrations:/app/migrations
     restart: on-failure
     depends_on:
+      - nginx
       - redis
       - postgres
-    environment:
-      FLASK_ENV: development
     networks:
-      - someNet
+      - myNet
+
+  nginx:
+    build: proxy
+    restart: always
+    ports:
+      - 80:80
+    networks:
+      - myNet
 
   redis:
     image: "redis:alpine"
     networks:
-      - someNet
+      - myNet
 
   postgres:
     image: postgres:12
@@ -32,7 +40,7 @@ services:
       - .env
     user: $USER_ID:$GROUP_ID
     networks:
-      - someNet
+      - myNet
 
 networks:
-  someNet:
+  myNet:

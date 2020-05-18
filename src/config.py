@@ -14,7 +14,6 @@ class Config(object):
 
 
 class ProductionConfig(Config):
-    DEBUG = False
     CACHE_TYPE = 'redis'
     CACHE_KEY_PREFIX = 'cache'
     CACHE_REDIS_HOST = 'redis'

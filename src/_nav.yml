@@ -1,0 +1,8 @@
+# Header navigation
+
+main:
+  - url: /
+    title: Frontend Events
+
+  - url: /kotlin
+    title: Kotlin Events

@@ -1,0 +1,10 @@
+flask
+Flask-Caching
+psycopg2-binary
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-Script
+redis
+requests
+python-dateutil
+

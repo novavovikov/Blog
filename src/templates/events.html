@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Frontend{% endblock %}
+
+{% block content %}
+{% for event in events %}
+<div class="event">
+  <div class="event__summary">
+    <a href="{{event.description}}" target="_blank">
+      {{event.summary}}
+    </a>
+  </div>
+  <div class="event__location">{{event.location}}</div>
+  <div class="event__dates">
+    {% if event.allDay %}
+    с {{ event.start|format_datetime }} по {{ event.end|format_datetime }}
+    {% else %}
+    с {{ event.start|format_datetime }} в {{ event.start|format_datetime('%H:%M') }}
+    по {{ event.end|format_datetime }} в {{ event.end|format_datetime('%H:%M') }}
+    {% endif %}
+    (<a href="{{event|get_google_calendar_link}}" target="_blank" rel="nofollow">Добавить в Google календарь</a>)
+  </div>
+</div>
+<hr>
+{% endfor %}
+{% endblock %}

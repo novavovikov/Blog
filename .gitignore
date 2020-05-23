@@ -1,6 +1,6 @@
 .idea/
-.DS_Store
 pgdata/
 migrations/
 __pycache__/
 venv/
+.DS_Store

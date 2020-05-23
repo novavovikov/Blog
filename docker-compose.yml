@@ -10,6 +10,8 @@ services:
       - ./src:/app
       - ./src/migrations:/app/migrations
     restart: on-failure
+    environment:
+      - FLASK_ENV
     depends_on:
       - nginx
       - redis

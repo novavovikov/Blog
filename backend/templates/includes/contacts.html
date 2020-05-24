@@ -1,0 +1,12 @@
+<div class="contacts">
+  {% for item in get_nav('contacts') %}
+    <a href="{{ item.url }}"
+       class="icon contacts-item"
+       title="{{ item.title }}"
+       target="_blank"
+       rel="noopener nofollow"
+    >
+      {% include item.icon %}
+    </a>
+  {% endfor %}
+</div>

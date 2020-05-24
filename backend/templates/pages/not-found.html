@@ -1,0 +1,18 @@
+{% extends 'includes/base.html' %}
+
+{% block title %}Not found{% endblock %}
+
+{% block content %}
+  <div class="not-found">
+    <div class="not-found__header">
+      <div class="not-found__title">
+        Страница не найдена
+      </div>
+      Перейти на <a href="/">главную страницу</a>
+    </div>
+
+    <div class="illustration not-found__image">
+      {% include 'assets/images/not-found.svg' %}
+    </div>
+  </div>
+{% endblock %}

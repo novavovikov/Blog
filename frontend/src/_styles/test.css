@@ -1,0 +1,11 @@
+body {
+  color: red;
+}
+
+.div {
+  position: relative;
+
+  &__text {
+    color: black;
+  }
+}

@@ -1,0 +1,7 @@
+{% macro render_content_block(title) %}
+  <div class="content-block">
+    <h4 class="content-block__title">{{ title }}</h4>
+    {{ caller() }}
+  </div>
+{%- endmacro %}
+

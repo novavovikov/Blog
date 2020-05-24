@@ -1,0 +1,72 @@
+{% extends 'includes/base.html' %}
+{% from 'includes/tags.html' import render_tags %}
+{% from 'includes/content-block.html' import render_content_block %}
+
+{% block content %}
+  <div class="articles-page">
+    <div class="articles-content">
+      {% if title %}
+        <h2 class="articles-content__title">
+          {% if articles | length %}
+            Найдено: <b>{{ title }}</b>
+          {% else %}
+            По запросу <b>{{ title }}</b> ничего не найдено
+          {% endif %}
+        </h2>
+      {% endif %}
+
+      <div class="articles">
+        {% if articles | length == 0 %}
+          <div class="illustration">
+            {% include 'assets/images/search.svg' %}
+          </div>
+        {% endif %}
+
+        {% for settings in articles %}
+          <div class="articles-item">
+            <a href="{{ settings.url }}" class="articles-item__img">
+              <img src="{{ settings.cover }}" alt="">
+            </a>
+
+            <div class="articles-item__content">
+              <a href="{{ settings.url }}" class="articles-item__header">
+                <h4 class="articles-item__title">{{ settings.title }}</h4>
+                {% if settings.description %}
+                  <div class="articles-item__description">{{ settings.description }}</div>
+                {% endif %}
+              </a>
+
+              {% if settings.tags %}
+                <div class="articles-item__tags">
+                  {{ render_tags(settings.tags) }}
+                </div>
+              {% endif %}
+              <div class="articles-item__footer">
+                <div class="articles-item__info">
+                  {{ settings.created_date | timestamp_to_date }} • {{ settings.reading_time }} мин. чтения
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="articles-sidebar">
+      {% if tags %}
+        {% call render_content_block('Теги') %}
+          {{ render_tags(tags) }}
+        {% endcall %}
+      {% endif %}
+
+      {% call render_content_block('Контакты') %}
+        {% include 'includes/contacts.html' %}
+      {% endcall %}
+
+      {% call render_content_block('События') %}
+        {% include 'includes/events-aside.html' %}
+      {% endcall %}
+    </div>
+  </div>
+{% endblock %}
+

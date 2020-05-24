@@ -1,49 +1,42 @@
 version: '3.7'
 
+volumes:
+  assets:
+
+networks:
+  events_net:
+    name: events_net
+
 services:
-  app:
-    build: src
+  backend:
+    build: backend
     working_dir: /app
     ports:
       - 5000:5000
     volumes:
-      - ./src:/app
-      - ./src/migrations:/app/migrations
+      - ./backend:/app
+      - assets:/app/templates/assets
     restart: on-failure
     environment:
       - FLASK_ENV
+      - GIT_PYTHON_REFRESH=quiet
+      - ARTICLES_URL=https://github.com/novavovikov/events/tree/master/backend/data/articles
     depends_on:
-      - nginx
       - redis
-      - postgres
     networks:
-      - myNet
-
-  nginx:
-    build: proxy
-    restart: always
-    ports:
-      - 80:80
-    networks:
-      - myNet
+      - events_net
 
   redis:
     image: "redis:alpine"
     networks:
-      - myNet
+      - events_net
 
-  postgres:
-    image: postgres:12
-    restart: always
-    ports:
-      - 5432:5432
+  frontend:
+    build: frontend
     volumes:
-      - ./pgdata:/var/lib/postgresql/articles/pgdata
-    env_file:
-      - .env
-    user: $USER_ID:$GROUP_ID
+      - ./frontend:/app
+      - assets:/app/dist
+    ports:
+      - 3000:3000
     networks:
-      - myNet
-
-networks:
-  myNet:
+      - events_net

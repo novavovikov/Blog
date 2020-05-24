@@ -1,0 +1,21 @@
+{% macro render_share_block(items, settings) %}
+  <div class="share">
+    {% for item in items %}
+      {% if item.link %}
+        <a href="{{ item.system | get_social_url(settings) }}"
+           class="icon share__control"
+           target="_blank"
+           rel="noopener nofollow"
+           title="{{ item.title }}"
+        >
+          {% include item.icon ignore missing %}
+        </a>
+      {% else %}
+        <button class="icon share__control" title="{{ item.title }}">
+          {% include item.icon ignore missing %}
+        </button>
+      {% endif %}
+    {% endfor %}
+  </div>
+{%- endmacro %}
+

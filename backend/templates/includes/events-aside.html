@@ -1,0 +1,10 @@
+<div class="events-aside">
+  {% for item in get_nav('events') %}
+    <a class="events-block" href="{{ item.url }}">
+      <img src="{{ item.img }}" alt="{{ item.title }}" class="events-block__img">
+      <div class="events-block__title">
+        {{ item.title }}
+      </div>
+    </a>
+  {% endfor %}
+</div>

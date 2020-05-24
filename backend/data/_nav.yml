@@ -1,0 +1,33 @@
+# Header navigation
+main:
+  - url: /
+    title: Articles
+  - url: /about
+    title: About me
+
+# Sidebar navigation
+events:
+  - url: /events/frontend
+    title: Frontend
+    img: /assets/images/frontend_events.jpeg
+
+  - url: /events/kotlin
+    title: Kotlin
+    img: /assets/images/kotlin_events.png
+
+contacts:
+  - url: https://github.com/novavovikov
+    title: Github
+    icon: /assets/icons/github.svg
+
+  - url: https://twitter.com/novavovikov
+    title: Twitter
+    icon: /assets/icons/tw.svg
+
+  - url: https://teleg.run/NovaVovikov
+    title: Telegram
+    icon: /assets/icons/telegram.svg
+
+  - url: 'email:novavovikov@gmail.com'
+    title: Email
+    icon: /assets/icons/mail.svg

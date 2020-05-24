@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "outDir": "./assets/",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react",
+    "strictNullChecks": true,
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "skipLibCheck": true
+  },
+  "linterOptions": {
+    "exclude": [
+      "*.json",
+      "**/*.json"
+    ]
+  },
+  "typeRoots": [
+    "node_modules/@types"
+  ],
+  "types": ["node"],
+  "include": [
+    "./global.d.ts",
+    "./src/index.tsx"
+  ]
+}

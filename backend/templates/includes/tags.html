@@ -1,0 +1,8 @@
+{% macro render_tags(tags, class_name) %}
+  <div class="tags {{ class_name }}">
+    {% for tag in tags %}
+      <a href="/?t={{ tag }}" class="tags__item">#{{ tag }}</a>
+    {% endfor %}
+  </div>
+{%- endmacro %}
+

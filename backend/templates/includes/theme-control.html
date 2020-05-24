@@ -1,0 +1,59 @@
+<button class="icon theme-control" data-theme-control>
+    <span class="theme-control__icon" data-theme-control-icon="dark">
+    {% include 'assets/icons/night.svg' %}
+  </span>
+  <span class="theme-control__icon" data-theme-control-icon="light">
+    {% include 'assets/icons/sun.svg' %}
+  </span>
+</button>
+
+<script>
+  (function () {
+    'use strict'
+
+    const Theme = function () {
+      this.themeNode = document.querySelector('[data-theme]')
+      this._init()
+    }
+
+    Theme.prototype._init = function () {
+      const currentTheme = this._getCurrentTheme()
+      this._setControlIcon(currentTheme)
+      this._setEventListeners()
+    }
+
+    Theme.prototype._setEventListeners = function () {
+      document.querySelector('[data-theme-control]').onclick = this.changeTheme.bind(this)
+    }
+
+    Theme.prototype._getCurrentTheme = function () {
+      return this.themeNode.getAttribute('data-theme')
+    }
+
+    Theme.prototype._setTheme = function (theme) {
+      this.themeNode.setAttribute('data-theme', theme)
+    }
+
+    Theme.prototype._setControlIcon = function (currentTheme) {
+      const controlIcons = [...document.querySelectorAll('[data-theme-control-icon]')]
+
+      for (const controlIcon of controlIcons) {
+        const controlTheme = controlIcon.getAttribute('data-theme-control-icon')
+        const classListAction = controlTheme === currentTheme ? 'remove' : 'add'
+
+        controlIcon.classList[classListAction]('_active')
+      }
+    }
+
+    Theme.prototype.changeTheme = function () {
+      const currentTheme = this._getCurrentTheme()
+      const theme = currentTheme === 'light' ? 'dark' : 'light'
+
+      this._setTheme(theme)
+      this._setControlIcon(theme)
+      window.localStorage.setItem('currentTheme', theme)
+    }
+
+    const theme = new Theme()
+  })()
+</script>

@@ -34,10 +34,11 @@ services:
 
   postgres:
     image: postgres:12
+    restart: always
     ports:
       - 5432:5432
     volumes:
-      - ./pgdata:/var/lib/postgresql/data/pgdata
+      - ./pgdata:/var/lib/postgresql/articles/pgdata
     env_file:
       - .env
     user: $USER_ID:$GROUP_ID

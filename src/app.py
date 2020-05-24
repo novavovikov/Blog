@@ -13,7 +13,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 root_folder = os.path.dirname(__file__)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='assets')
 
 if app.config['ENV'] == 'production':
     app.config.from_object('config.ProductionConfig')

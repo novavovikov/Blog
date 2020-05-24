@@ -2,7 +2,13 @@
 
 main:
   - url: /
+    title: Main
+
+  - url: /frontend
     title: Frontend Events
 
   - url: /kotlin
     title: Kotlin Events
+
+  - url: /articles
+    title: Articles

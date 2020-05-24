@@ -1,0 +1,14 @@
+{% extends 'includes/base.html' %}
+
+{% block styles %}
+  <link rel="stylesheet" href={{ url_for('static', filename='markdown.css' ) }}>
+{% endblock %}
+
+{% block content %}
+  {% for article in articles %}
+    <p>
+      <a href="/articles/{{ article }}">{{ article }}</a>
+    </p>
+  {% endfor %}
+{% endblock %}
+

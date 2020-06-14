@@ -1,0 +1,16 @@
+.header {
+  z-index: 10;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+}

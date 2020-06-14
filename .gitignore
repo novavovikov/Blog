@@ -14,4 +14,5 @@ temp/
 #rest
 .next/
 dist/
+package-lock.json
 node_modules/

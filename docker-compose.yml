@@ -1,12 +1,5 @@
 version: '3.7'
 
-volumes:
-  assets:
-
-networks:
-  events_net:
-    name: events_net
-
 services:
   backend:
     build: backend
@@ -15,7 +8,7 @@ services:
       - 5000:5000
     volumes:
       - ./backend:/app
-      - assets:/app/templates/assets
+      - assets:/app/templates/assets:ro
     restart: on-failure
     environment:
       - FLASK_ENV
@@ -35,8 +28,16 @@ services:
     build: frontend
     volumes:
       - ./frontend:/app
-      - assets:/app/dist
+      - assets:/app/dist:rw
     ports:
       - 3000:3000
+    command: sh -c "npm run start"
     networks:
       - events_net
+
+volumes:
+  assets:
+
+networks:
+  events_net:
+    name: events_net

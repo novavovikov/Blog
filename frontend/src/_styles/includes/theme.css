@@ -1,0 +1,18 @@
+.theme-control {
+  width: 40px;
+  height: 40px;
+  background: none;
+}
+
+.theme-control svg {
+  width: 28px;
+  height: 28px;
+}
+
+.theme-control__icon {
+  display: none;
+}
+
+.theme-control__icon._active {
+  display: block;
+}

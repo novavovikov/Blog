@@ -1,0 +1,10 @@
+.content-block {
+  padding: 20px;
+  background: var(--c-bg-accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-main);
+}
+
+.content-block__title {
+  margin: 0 0 10px;
+}

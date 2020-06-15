@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./assets/",
+    "outDir": "./dist/scripts",
     "sourceMap": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
@@ -26,9 +26,12 @@
   "typeRoots": [
     "node_modules/@types"
   ],
-  "types": ["node"],
+  "types": [
+    "node"
+  ],
   "include": [
     "./global.d.ts",
-    "./src/index.tsx"
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
   ]
 }

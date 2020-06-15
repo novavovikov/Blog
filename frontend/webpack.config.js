@@ -4,7 +4,8 @@ module.exports = env => ({
   entry: require('./webpack/entry')(env),
   output: {
     path: paths.output(),
-    filename: '[name].[ext]',
+    filename: '[name].js',
+    publicPath: '/assets'
   },
   devtool: 'source-map',
   resolve: {

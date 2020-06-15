@@ -1,0 +1,20 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+}
+
+.tags__item {
+  color: inherit;
+  font-size: var(--font-xs);
+  padding: 3px 10px;
+  text-decoration: none;
+  background: var(--c-bg-secondary);
+  border-radius: var(--radius);
+  margin: 5px;
+}
+
+.tags__item:hover {
+  color: #fff;
+  background: var(--c-accent);
+}

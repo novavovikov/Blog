@@ -1,0 +1,7 @@
+.logo {
+  display: inline-flex;
+}
+
+.logo:hover rect {
+  fill: var(--c-accent);
+}

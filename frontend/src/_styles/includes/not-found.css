@@ -1,0 +1,13 @@
+.not-found {
+}
+
+.not-found__header {
+  text-align: center;
+  line-height: 2;
+  font-weight: 500;
+}
+
+.not-found__title {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+}

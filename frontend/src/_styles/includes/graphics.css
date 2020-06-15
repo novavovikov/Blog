@@ -1,0 +1,11 @@
+.icon svg {
+  fill: var(--c-icon);
+}
+
+.icon:hover svg {
+  fill: var(--c-accent);
+}
+
+.illustration svg {
+  fill: var(--c-illustration);
+}

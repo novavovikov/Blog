@@ -1,13 +1,17 @@
-import React, { FC } from 'react'
+import React, { FC, FormEvent } from 'react'
 import cn from 'classnames'
 import s from './styles.css'
 
 const Editor: FC = () => {
+  const onSubmitForm = (e: FormEvent) => {
+  }
+
   return (
     <form
       className={s.Сreator}
       action="/create"
       method="POST"
+      onSubmit={onSubmitForm}
     >
       <button className={s.Сreator__cover}>Добавить обложку</button>
       <div className={s.Сreator__section}>

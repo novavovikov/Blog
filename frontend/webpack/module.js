@@ -1,7 +1,9 @@
+const { output, tsConfig } = require('../paths')
+
 const fileLoaderWithOptions = (env) => ({
   loader: 'file-loader',
   options: {
-    outputPath: 'src/',
+    outputPath: output,
     name: '[name].[ext]',
   },
 })
@@ -14,8 +16,7 @@ module.exports = (env) => ({
         {
           loader: 'ts-loader',
           options: {
-            context: __dirname,
-            configFile: require.resolve('../tsconfig.json'),
+            configFile: tsConfig
           },
         },
       ],

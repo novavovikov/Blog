@@ -1,9 +1,10 @@
-const path = require('path')
+const { root, scriptsOutput } = require('./paths')
 
 module.exports = env => ({
+  context: root,
   entry: require('./webpack/entry')(env),
   output: {
-    path: path.resolve(__dirname, './dist/scripts'),
+    path: scriptsOutput,
   },
   devtool: 'source-map',
   resolve: {
@@ -17,7 +18,7 @@ module.exports = env => ({
   mode: env,
   watch: env === 'development',
   watchOptions: {
-    ignored: 'node_modules'
+    ignored: 'node_modules',
   },
   optimization: require('./webpack/optimization')(env),
   module: require('./webpack/module')(env),

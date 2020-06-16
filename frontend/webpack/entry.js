@@ -1,37 +1,14 @@
-const fs = require('fs')
+const glob = require('glob')
 const path = require('path')
-const chalk = require('chalk')
+const { scriptsSource } = require('../paths')
 
-function getImports ({ src, output }) {
-  try {
-    const files = fs.readdirSync(src) || []
+const sourceFiles = path.join(scriptsSource, '*.{ts,tsx}')
 
-    return files.reduce((acc, file) => {
-      const filePath = path.join(src, file)
-      const statFile = fs.statSync(filePath)
-
-      if (statFile.isDirectory()) {
-        return acc
-      }
-
-      const name = path.parse(file).name
-      return {
-        ...acc,
-        [name]: {
-          import: filePath,
-          filename: output,
-        },
-      }
-    }, {})
-  } catch (e) {
-    console.log(chalk.cyan('getImports: '), chalk.red(e))
-    return {}
-  }
-}
-
-module.exports = (env) => {
-  return getImports({
-    src: path.resolve(__dirname, '../src/scripts'),
-    output: '[name].js',
-  })
-}
+module.exports = (env) => glob.sync(sourceFiles).
+  reduce((acc, filePath) => {
+    const { name } = path.parse(filePath)
+    return {
+      ...acc,
+      [name]: filePath,
+    }
+  }, {})

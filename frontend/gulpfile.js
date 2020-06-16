@@ -3,7 +3,6 @@ const del = require('del')
 
 require('./tasks/images')
 require('./tasks/resources')
-require('./tasks/scripts')
 require('./tasks/styles')
 require('./tasks/watch')
 require('./tasks/webserver')
@@ -17,7 +16,6 @@ gulp.task('build', gulp.series(
   gulp.parallel(
     'images',
     'resources',
-    'scripts',
     'styles',
   )),
 )

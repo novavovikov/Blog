@@ -5,53 +5,10 @@
 {% endblock %}
 
 {% block content %}
-  <form class="creator" action="/create" method="POST">
-    <button class="creator__cover">
-      Добавить обложку
-    </button>
+  <div id="editor"></div>
+{% endblock %}
 
-    <div class="creator__section">
-      <textarea class="creator__field creator__title"
-                name="title"
-                autocomplete="off"
-                autofocus
-                placeholder="Добавьте заголовок..."
-                required
-      ></textarea>
-      <textarea class="creator__field creator__description"
-                name="description"
-                autocomplete="off"
-                autofocus
-                placeholder="Преамбула для статьи..."
-      ></textarea>
-    </div>
-
-    <div class="creator__section">
-      <input class="creator__field creator__tags"
-             type="text"
-             placeholder="Добавьте до 4 тегов"
-             name="tags"
-             required
-      >
-    </div>
-
-    <textarea class="creator__field creator__text"
-              name="content"
-              autocomplete="off"
-              autofocus
-              placeholder="А теперь начните писать пост..."
-              required
-    ></textarea>
-
-    <div class="creator__footer">
-      <button class="btn">
-        Опубликовать
-      </button>
-
-      <button class="btn btn-transparent">
-        Сохранить как черновик
-      </button>
-    </div>
-  </form>
+{% block scripts %}
+  <script src="{{ url_for('static', filename='scripts/editor.js' ) }}"></script>
 {% endblock %}
 

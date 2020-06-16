@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./dist/",
     "sourceMap": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
@@ -16,16 +17,8 @@
     "removeComments": true,
     "skipLibCheck": true
   },
-  "linterOptions": {
-    "exclude": [
-      "*.json",
-      "**/*.json"
-    ]
-  },
   "typeRoots": [
-    "node_modules/@types"
+    "./node_modules/@types"
   ],
-  "types": [
-    "node"
-  ]
+  "types": ["node"]
 }

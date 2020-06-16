@@ -2,7 +2,8 @@ const gulp = require('gulp')
 
 //images
 gulp.task('watch:images', () => {
-  gulp.watch('src/{images,icons}/**/*.{jpg,jpeg,png,svg}', gulp.series('images'))
+  gulp.watch('src/{images,icons}/**/*.{jpg,jpeg,png,svg}',
+    gulp.series('images'))
 })
 
 //resources
@@ -12,9 +13,7 @@ gulp.task('watch:resources', () => {
 
 //scripts
 gulp.task('watch:scripts', () => {
-  gulp.watch([
-    'src/scripts/**/*.{ts,tsx,css}',
-  ], gulp.series('scripts'))
+  gulp.watch('src/scripts/**/*.{ts,tsx,css}')
 })
 
 //styles

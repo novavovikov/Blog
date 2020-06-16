@@ -4,8 +4,12 @@
   "description": "The platform for creating of quizzes",
   "main": "index.js",
   "scripts": {
-    "start": "gulp dev --env development",
-    "build": "gulp prod --env production"
+    "start": "npm-run-all -p gulp:dev webpack:dev",
+    "build": "npm-run-all gulp:prod webpack:prod",
+    "gulp:dev": "gulp dev --env development",
+    "gulp:prod": "gulp prod --env production",
+    "webpack:dev": "webpack --env development",
+    "webpack:prod": "webpack --env production"
   },
   "author": "NovaVovikov",
   "license": "MIT",
@@ -16,6 +20,7 @@
     "@types/react-dom": "^16.9.8",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.7",
+    "chalk": "^4.1.0",
     "css-loader": "^3.6.0",
     "css-modules-typescript-loader": "^4.0.0",
     "del": "^5.1.0",
@@ -31,10 +36,12 @@
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
+    "i": "^0.3.6",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-pngquant": "^9.0.0",
     "imagemin-svgo": "^8.0.0",
+    "npm-run-all": "^4.1.5",
     "postcss-apply": "^0.12.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
@@ -47,9 +54,9 @@
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.9.5",
-    "vinyl-named": "^1.1.0",
+    "uninstall": "0.0.0",
     "webpack": "^5.0.0-beta.17",
-    "webpack-cli": "^4.0.0-beta.2",
+    "webpack-cli": "^3.3.11",
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {

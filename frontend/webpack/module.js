@@ -10,7 +10,15 @@ module.exports = (env) => ({
   rules: [
     {
       test: /\.(ts|tsx)$/i,
-      use: 'ts-loader',
+      use: [
+        {
+          loader: 'ts-loader',
+          options: {
+            context: __dirname,
+            configFile: require.resolve('../tsconfig.json'),
+          },
+        },
+      ],
     },
     {
       test: /\.(js|jsx)$/i,
@@ -21,14 +29,18 @@ module.exports = (env) => ({
       test: /\.css$/,
       enforce: 'pre',
       use: [
+        'style-loader',
+        'css-modules-typescript-loader',
         {
-          loader: 'file-loader',
+          loader: 'css-loader',
           options: {
-            name: './styles/[name].[ext]',
+            modules: {
+              localIdentName: env === 'development'
+                ? '[local]--[hash:base64:3]'
+                : '[hash:base64:7]',
+            },
           },
         },
-        'extract-loader',
-        'css-loader',
         {
           loader: 'postcss-loader',
           options: {
@@ -36,15 +48,10 @@ module.exports = (env) => ({
             plugins: () => [
               require('postcss-import')(),
               require('postcss-preset-env')({
-                /* use stage 3 features + css nesting rules */
-                stage: 3,
-                features: {
-                  'nesting-rules': true,
-                },
+                stage: 2,
               }),
               require('postcss-nested')(),
             ],
-
           },
         },
       ],

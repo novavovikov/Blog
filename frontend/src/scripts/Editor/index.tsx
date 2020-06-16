@@ -1,17 +1,18 @@
 import React, { FC } from 'react'
-import * as s from './styles.css'
+import cn from 'classnames'
+import s from './styles.css'
 
 const Editor: FC = () => {
   return (
     <form
-      className={s.Creator}
+      className={s.Сreator}
       action="/create"
       method="POST"
     >
       <button className={s.Сreator__cover}>Добавить обложку</button>
-      <div className="creator__section">
+      <div className={s.Сreator__section}>
       <textarea
-        className="creator__field creator__title"
+        className={cn(s.Сreator__field, s.Сreator__title)}
         name="title"
         autoComplete="off"
         autoFocus
@@ -19,7 +20,7 @@ const Editor: FC = () => {
         required
       />
         <textarea
-          className="creator__field creator__description"
+          className={cn(s.Сreator__field, s.Сreator__description)}
           name="description"
           autoComplete="off"
           autoFocus
@@ -27,17 +28,18 @@ const Editor: FC = () => {
         />
       </div>
 
-      <div className="creator__section">
-        <input className="creator__field creator__tags"
-               type="text"
-               placeholder="Добавьте до 4 тегов"
-               name="tags"
-               required
+      <div className={s.Сreator__section}>
+        <input
+          className={cn(s.Сreator__field, s.Сreator__tags)}
+          type="text"
+          placeholder="Добавьте до 4 тегов"
+          name="tags"
+          required
         />
       </div>
 
       <textarea
-        className="creator__field creator__text"
+        className={cn(s.Сreator__field, s.Сreator__text)}
         name="content"
         autoComplete="off"
         autoFocus
@@ -45,7 +47,7 @@ const Editor: FC = () => {
         required
       />
 
-      <div className="creator__footer">
+      <div className={s.Сreator__footer}>
         <button className="btn">
           Опубликовать
         </button>

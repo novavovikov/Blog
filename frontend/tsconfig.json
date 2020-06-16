@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/scripts",
     "sourceMap": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
@@ -28,10 +27,5 @@
   ],
   "types": [
     "node"
-  ],
-  "include": [
-    "./global.d.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx"
   ]
 }

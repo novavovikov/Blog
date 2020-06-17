@@ -1,6 +1,6 @@
 import React from 'react'
 import * as ReactDOM from 'react-dom'
-import Editor from './Editor'
+import Editor from './components/Editor'
 
 const rootEl = document.getElementById('editor')
 

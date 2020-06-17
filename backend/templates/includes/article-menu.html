@@ -1,0 +1,11 @@
+{% from 'includes/menu.html' import render_menu %}
+
+{% macro render_article_menu(article_url) %}
+  {% set menu_items =  ({ 'url': article_url + '?r', 'title': 'Удалить' }, ) %}
+
+  {% call render_menu(menu_items, class_name="article-menu") %}
+    <button class="icon article-menu__control">
+      {% include 'assets/icons/dots.svg' %}
+    </button>
+  {% endcall %}
+{%- endmacro %}

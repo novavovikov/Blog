@@ -1,0 +1,30 @@
+.FileLoader {
+  position: relative;
+  display: flex;
+  background: none;
+  font-size: var(--font-s);
+  background: var(--c-bg-secondary);
+  transition: var(--transition-f);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--c-accent);
+  }
+
+  &__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__label {
+    text-align: center;
+    padding: 10px 30px;
+  }
+}

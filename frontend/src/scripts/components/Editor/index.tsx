@@ -1,36 +1,47 @@
-import React, { FC, FormEvent } from 'react'
+import React, { FC } from 'react'
 import cn from 'classnames'
+import { useField } from '../../hooks/field'
+import Button from '../../UI/Button'
+import FileLoader from '../../UI/FileLoader'
 import s from './styles.css'
 
 const Editor: FC = () => {
-  const onSubmitForm = (e: FormEvent) => {
-  }
+  const [title, setTitle] = useField('')
+  const [description, setDescription] = useField('')
+  const [tags, setTags] = useField('')
+  const [content, setContent] = useField('')
+
+  const isDisabled = !title || !description || !tags || !content
 
   return (
     <form
       className={s.Сreator}
       action="/create"
       method="POST"
-      onSubmit={onSubmitForm}
     >
-      <button className={s.Сreator__cover}>Добавить обложку</button>
       <div className={s.Сreator__section}>
-      <textarea
-        className={cn(s.Сreator__field, s.Сreator__title)}
-        name="title"
-        autoComplete="off"
-        autoFocus
-        placeholder="Добавьте заголовок..."
-        required
-      />
+        <textarea
+          className={cn(s.Сreator__field, s.Сreator__title)}
+          name="title"
+          autoComplete="off"
+          value={title}
+          onChange={setTitle}
+          placeholder="Добавьте заголовок..."
+          autoFocus
+          required
+        />
         <textarea
           className={cn(s.Сreator__field, s.Сreator__description)}
           name="description"
           autoComplete="off"
+          value={description}
+          onChange={setDescription}
           autoFocus
           placeholder="Преамбула для статьи..."
         />
       </div>
+
+      <FileLoader className={s.Сreator__cover}>Добавить обложку</FileLoader>
 
       <div className={s.Сreator__section}>
         <input
@@ -38,6 +49,8 @@ const Editor: FC = () => {
           type="text"
           placeholder="Добавьте до 4 тегов"
           name="tags"
+          value={tags}
+          onChange={setTags}
           required
         />
       </div>
@@ -47,14 +60,18 @@ const Editor: FC = () => {
         name="content"
         autoComplete="off"
         autoFocus
+        value={content}
+        onChange={setContent}
         placeholder="А теперь начните писать пост..."
         required
       />
 
       <div className={s.Сreator__footer}>
-        <button className="btn">
+        <Button
+          disabled={isDisabled}
+        >
           Опубликовать
-        </button>
+        </Button>
 
         <button className="btn btn-transparent">
           Сохранить как черновик

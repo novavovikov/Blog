@@ -11,23 +11,29 @@
   transition: var(--transition-f);
   box-shadow: var(--shadow-secondary);
   border-radius: var(--radius);
-}
 
-.btn:hover {
-  background: var(--c-accent-secondary);
+  &:hover {
+    background: var(--c-accent-secondary);
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+  
+  &:disabled {
+    box-shadow: none;
+    background: var(--c-bg-secondary);
+    cursor: default;
+  }
 }
 
 .btn-transparent {
   color: var(--c-text-main);
   background: none;
   box-shadow: none;
-}
 
-.btn-transparent:hover {
-  background: var(--c-bg-secondary);
-  box-shadow: var(--shadow-secondary);
-}
-
-.btn:active {
-  box-shadow: none;
+  &:hover {
+    background: var(--c-bg-secondary);
+    box-shadow: var(--shadow-secondary);
+  }
 }

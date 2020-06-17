@@ -1,6 +1,7 @@
 @import "includes/_variables.css";
 @import "includes/_base.css";
 @import "includes/_layout.css";
+@import "includes/menu.css";
 @import "includes/input.css";
 @import "includes/btn.css";
 @import "includes/graphics.css";
@@ -11,6 +12,7 @@
 @import "includes/logo.css";
 @import "includes/contacts.css";
 @import "includes/article.css";
+@import "includes/article-menu.css";
 @import "includes/articles.css";
 @import "includes/not-found.css";
 @import "includes/share.css";

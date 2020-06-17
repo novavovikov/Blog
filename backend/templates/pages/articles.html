@@ -1,6 +1,7 @@
 {% extends 'includes/base.html' %}
 {% from 'includes/tags.html' import render_tags %}
 {% from 'includes/content-block.html' import render_content_block %}
+{% from 'includes/article-menu.html' import render_article_menu %}
 
 {% block content %}
   <div class="articles-page">
@@ -29,6 +30,8 @@
             </a>
 
             <div class="articles-item__content">
+              {{ render_article_menu(settings.url) }}
+
               <a href="{{ settings.url }}" class="articles-item__header">
                 <h4 class="articles-item__title">{{ settings.title }}</h4>
                 {% if settings.description %}

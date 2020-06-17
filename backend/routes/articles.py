@@ -1,7 +1,8 @@
 import uuid
+import shutil
 
 from flask import render_template, send_from_directory, request, Blueprint, \
-    redirect
+    redirect, url_for
 from transliterate import translit, detect_language
 
 from constants.query import QueryParams
@@ -88,7 +89,15 @@ def images(dirname, filename):
 @articles_bp.route('/articles/<path:dirname>')
 @cache.cached(timeout=600)
 def article_page(dirname: str):
+    remove_param = request.args.get(QueryParams.remove)
+
+    if remove_param is not None:
+        article_path = os.path.join(articles_dir, dirname)
+        shutil.rmtree(article_path, ignore_errors=True)
+        return redirect('/')
+
     try:
+
         article_content = get_article_content(dirname)
         article_settings = get_article_settings(dirname)
         return render_template(
@@ -97,7 +106,7 @@ def article_page(dirname: str):
             content=article_content,
             article_url=get_article_url(dirname),
             share=Share.items,
-            tags=article_settings.get('tags')
+            tags=article_settings.get('tags'),
         )
     except ValueError:
         return render_template('pages/not-found.html')

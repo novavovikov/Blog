@@ -1,0 +1,13 @@
+{% macro render_menu(items, class_name) %}
+  <div class="menu {{ class_name }}">
+    {{ caller() }}
+
+    <div class="menu-list">
+      {% for item in items %}
+        <div class="menu-list__item">
+          <a href="{{ item.url }}" class="menu-list__link">{{ item.title }}</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{%- endmacro %}

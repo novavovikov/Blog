@@ -1,13 +1,8 @@
-<div class="nav">
+{% from 'includes/menu.html' import render_menu %}
+{% set menu_items =  get_nav('main') %}
+
+{% call render_menu(menu_items, class_name="nav") %}
   <button class="nav-control">
     NV
   </button>
-
-  <div class="nav-list">
-    {% for item in get_nav('main') %}
-    <div class="nav-list__item">
-      <a href="{{ item.url }}" class="nav-list__link">{{ item.title }}</a>
-    </div>
-  {% endfor %}
-  </div>
-</div>
+{% endcall %}

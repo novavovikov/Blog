@@ -12,7 +12,7 @@ from utils.cache import cache
 
 articles_bp = Blueprint('articles', __name__)
 
-
+#
 @articles_bp.route('/')
 def articles_page():
     tag_param = request.args.get(QueryParams.tag)

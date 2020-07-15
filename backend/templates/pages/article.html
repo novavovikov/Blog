@@ -8,23 +8,25 @@
 
 {% block content %}
   <div class="article">
-    <div class="sidebar">
-      <div class="sidebar-item">
-        <a href="{{ article_url }}" target="_blank" title="Редактировать на GitHub">
-          Edit
-        </a>
+    {% if False %}
+      <div class="sidebar">
+        <div class="sidebar-item">
+          <a href="{{ article_url }}" target="_blank" title="Редактировать на GitHub">
+            Edit
+          </a>
+        </div>
+        <div class="sidebar-item">
+          <button>
+            Get five
+          </button>
+        </div>
+        <div class="sidebar-item">
+          <button>
+            Bookmarks
+          </button>
+        </div>
       </div>
-      <div class="sidebar-item">
-        <button>
-          Get five
-        </button>
-      </div>
-      <div class="sidebar-item">
-        <button>
-          Bookmarks
-        </button>
-      </div>
-    </div>
+    {% endif %}
 
     <div class="article__header">
       <h2 class="article__title">
@@ -37,10 +39,10 @@
       {% if article_url %}
         <div>
           <a href="{{ article_url }}" target="_blank" class="article-edit" title="Редактировать на GitHub">
-            Редактировать на GitHub
             <div class="icon article-edit__icon">
               {% include 'assets/icons/edit.svg' %}
             </div>
+            Редактировать на GitHub
           </a>
         </div>
       {% endif %}

@@ -30,7 +30,9 @@
             </a>
 
             <div class="articles-item__content">
-              {{ render_article_menu(settings.url) }}
+              {% if False %}
+                {{ render_article_menu(settings.url) }}
+              {% endif %}
 
               <a href="{{ settings.url }}" class="articles-item__header">
                 <h4 class="articles-item__title">{{ settings.title }}</h4>

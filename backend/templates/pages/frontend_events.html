@@ -1,28 +1,59 @@
 {% extends 'includes/base.html' %}
 
 {% block content %}
-  <div class="events">
-    {% for event in events %}
-      <div class="event">
-        <div class="event__summary">
-          <a href="{{ event.description }}" target="_blank">
-            {{ event.summary }}
-          </a>
-        </div>
-        <div class="event__location">{{ event.location }}</div>
-        <div class="event__dates">
-          {% if event.allDay %}
-            с {{ event.start|format_date }} по {{ event.end|format_date }}
-          {% else %}
-            с {{ event.start|format_date }} в {{ event.start|format_date('%H:%M') }}
-            по {{ event.end|format_date }} в {{ event.end|format_date('%H:%M') }}
-          {% endif %}
-          <div class="event__calendar">
-            <a href="{{ event|get_google_calendar_link }}" target="_blank" rel="nofollow">(Добавить в Google
-            календарь)</a>
-          </div>
-        </div>
-      </div>
+<h2 class="events__title">События - Frontend:</h2>
+
+<form class="events-filter" method="get">
+  <input
+    class="input events-filter__field"
+    placeholder="Название города"
+    name="location"
+    value="{{ location }}"
+    list="locations"
+    autocomplete="off"
+    autofocus
+  >
+  <datalist id="locations">
+    {% for city in cities %}
+    <option value="{{ city }}">
     {% endfor %}
+  </datalist>
+
+  <button class="btn events-filter__submit">Искать</button>
+</form>
+
+<div class="events">
+  {% if events | length == 0 %}
+    По данному запросу ничего не найдено
+
+    <div class="illustration">
+      {% include 'assets/images/search.svg' %}
+    </div>
+  {% endif %}
+
+  {% for event in events %}
+  <div class="event">
+    <div class="event__info">
+      <div class="event__summary">
+        <a href="{{ event.description }}" target="_blank">
+          {{ event.summary }}
+        </a>
+      </div>
+      <div class="event__location">{{ event.location }}</div>
+    </div>
+    <div class="event__dates">
+      {% if event.allDay %}
+      с {{ event.start|format_date }} по {{ event.end|format_date }}
+      {% else %}
+      с {{ event.start|format_date }} в {{ event.start|format_date('%H:%M') }}
+      по {{ event.end|format_date }} в {{ event.end|format_date('%H:%M') }}
+      {% endif %}
+      <div class="event__calendar">
+        <a href="{{ event|get_google_calendar_link }}" target="_blank" rel="nofollow">(Добавить в Google
+          календарь)</a>
+      </div>
+    </div>
   </div>
+  {% endfor %}
+</div>
 {% endblock %}

@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   padding: 5px 15px;
+  line-height: 20px;
   min-height: 40px;
   font-size: var(--font-s);
   background: var(--c-accent);

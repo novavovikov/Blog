@@ -24,10 +24,10 @@ contacts:
     title: Twitter
     icon: /assets/icons/tw.svg
 
-  - url: https://teleg.run/NovaVovikov
+  - url: https://t.me/NovaVovikov
     title: Telegram
     icon: /assets/icons/telegram.svg
 
-  - url: 'email:novavovikov@gmail.com'
+  - url: 'mailto:novavovikov@gmail.com'
     title: Email
     icon: /assets/icons/mail.svg

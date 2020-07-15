@@ -1,0 +1,154 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "videoUrl": "https://www.youtube.com/watch?v=PsaFVLr8t4E",
+      "title": "Conference Opening Keynote",
+      "speaker": "Andrey Breslav"
+    },
+    {
+      "id": 2,
+      "videoUrl": "https://www.youtube.com/watch?v=WkIry790PHI",
+      "title": "A Multiplatform Delight",
+      "speaker": "Jake Wharton and Alec Strong"
+    },
+    {
+      "id": 3,
+      "videoUrl": "https://www.youtube.com/watch?v=Rvx_BfG3NDo",
+      "title": "Next Level DSLs",
+      "speaker": "Aaron Sarazan"
+    },
+    {
+      "id": 4,
+      "videoUrl": "https://www.youtube.com/watch?v=Fzt_9I733Yg",
+      "title": "Dissecting the stdlib",
+      "speaker": "Huyen Tue Dao"
+    },
+    {
+      "id": 5,
+      "videoUrl": "https://www.youtube.com/watch?v=8xfQA10Cd7g",
+      "title": "Komparing Kotlin Server Frameworks",
+      "speaker": "Ken Yee"
+    },
+    {
+      "id": 6,
+      "videoUrl": "https://www.youtube.com/watch?v=mAtrEPeAJSc",
+      "title": "Type-Safe Build Logic with Gradle Kotlin DSL",
+      "speaker": "Paul Merlin"
+    },
+    {
+      "id": 7,
+      "videoUrl": "https://www.youtube.com/watch?v=LJyDCYP0WG4",
+      "title": "Graphics Programming with Kotlin",
+      "speaker": "Romain Guy"
+    },
+    {
+      "id": 8,
+      "videoUrl": "https://www.youtube.com/watch?v=pSiZVAeReeg",
+      "title": "Kotlin and Spring Boot, a Match Made in Heaven",
+      "speaker": "Nicolas Frankel"
+    },
+    {
+      "id": 9,
+      "videoUrl": "https://www.youtube.com/watch?v=U-gdJQeOVAk",
+      "title": "Live Coding Kotlin/Native Snake",
+      "speaker": "Dmitry Kandalov"
+    },
+    {
+      "id": 10,
+      "videoUrl": "https://www.youtube.com/watch?v=yjhQiP0329M",
+      "title": "Safe(r) Kotlin Code - Static Analysis Tools for Kotlin",
+      "speaker": "Marvin Ramin"
+    },
+    {
+      "id": 11,
+      "videoUrl": "https://www.youtube.com/watch?v=P7ov_r1JZ1g",
+      "title": "Android Suspenders",
+      "speaker": "Chris Banes"
+    },
+    {
+      "id": 12,
+      "videoUrl": "https://www.youtube.com/watch?v=1NmXeZgtkvg",
+      "title": "GraphQL Powered by Kotlin",
+      "speaker": "Annyce Davis"
+    },
+    {
+      "id": 13,
+      "videoUrl": "https://www.youtube.com/watch?v=-zTqtEcnM7A",
+      "title": "Mathematical Modeling with Kotlin",
+      "speaker": "Thomas Nield"
+    },
+    {
+      "id": 14,
+      "videoUrl": "https://www.youtube.com/watch?v=a2RoLFzrFG0",
+      "title": "Annotation Processing in a Kotlin World",
+      "speaker": "Zac Sweers"
+    },
+    {
+      "id": 15,
+      "videoUrl": "https://www.youtube.com/watch?v=pcwIs749KSE",
+      "title": "Architecting a Kotlin JVM and JS Multiplatform Project",
+      "speaker": "Felipe Lima"
+    },
+    {
+      "id": 16,
+      "videoUrl": "https://www.youtube.com/watch?v=-qz514eVu1Y",
+      "title": "Functional CQRS in Kotlin",
+      "speaker": "Uberto Barbini"
+    },
+    {
+      "id": 17,
+      "videoUrl": "https://www.youtube.com/watch?v=yjVW6uCmVBA",
+      "title": "Building Data Science Workflows with Kotlin",
+      "speaker": "Holger Brandl"
+    },
+    {
+      "id": 18,
+      "videoUrl": "https://www.youtube.com/watch?v=juFkdMv4B9s",
+      "title": "Exploring the Kotlin Type Hierarchy from Top to Bottom",
+      "speaker": "Nat Pryce"
+    },
+    {
+      "id": 19,
+      "videoUrl": "https://www.youtube.com/watch?v=nw6YTfEyfO0",
+      "title": "Kotlin/Native Concurrency Model",
+      "speaker": "Nikolay Igotti"
+    },
+    {
+      "id": 20,
+      "videoUrl": "https://www.youtube.com/watch?v=w-GMlaziIyo",
+      "title": "Writing Your First Kotlin Compiler Plugin",
+      "speaker": "Kevin Most"
+    },
+    {
+      "id": 21,
+      "videoUrl": "https://www.youtube.com/watch?v=kDxerDYelLs",
+      "title": "Beat the High-Score: Build a Game Using libGDX and Kotlin",
+      "speaker": "David Wursteisen"
+    },
+    {
+      "id": 22,
+      "videoUrl": "https://www.youtube.com/watch?v=Sy6ZdgqrQp0",
+      "title": "Shaping Your App's Architecture with Kotlin and Architecture Components",
+      "speaker": "Florina"
+    },
+    {
+      "id": 23,
+      "videoUrl": "https://www.youtube.com/watch?v=MyljSWm0Y_k",
+      "title": "New Type Inference and Related Language Features",
+      "speaker": "Svetlana Isakova"
+    },
+    {
+      "id": 24,
+      "videoUrl": "https://www.youtube.com/watch?v=vdxBNh1qx1Q",
+      "title": "Server as a Function in Kotlin",
+      "speaker": "Ivan Sanchez & David Denton"
+    },
+    {
+      "id": 25,
+      "videoUrl": "https://www.youtube.com/watch?v=ysCo_7xlzsI",
+      "title": "Atlas and Peon: Dependency Visualization & Management with Kotlin/JS",
+      "speaker": "Neil Power"
+    }
+  ]
+}

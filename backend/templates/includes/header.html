@@ -9,7 +9,10 @@
       </div>
 
       <div class="header-section">
-        <a href="/new" class="btn create-control">Написать статью</a>
+        {% if False %}
+          <a href="/new" class="btn create-control">Написать статью</a>
+        {% endif %}
+
         {% include 'includes/theme-control.html' %}
         {% include 'includes/nav.html' %}
       </div>

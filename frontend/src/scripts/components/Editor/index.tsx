@@ -11,7 +11,7 @@ const Editor: FC = () => {
   const [tags, setTags] = useField('')
   const [content, setContent] = useField('')
 
-  const isDisabled = !title || !description || !tags || !content
+  const isDisabled = Boolean(!title || !description || !tags || !content)
 
   return (
     <form

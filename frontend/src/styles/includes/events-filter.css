@@ -1,0 +1,15 @@
+.events-filter {
+  display: grid;
+  align-items: center;
+  justify-content: flex-start;
+  grid-gap: 10px;
+  grid-template-columns: 1fr auto;
+  margin: 0 0 1.5em;
+
+  &__field {
+  }
+
+  &__submit {
+    width: 160px;
+  }
+}

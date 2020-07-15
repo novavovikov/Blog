@@ -16,6 +16,8 @@
 @import "includes/articles.css";
 @import "includes/not-found.css";
 @import "includes/share.css";
+@import "includes/events.css";
+@import "includes/events-filter.css";
 @import "includes/event.css";
 @import "includes/create.css";
 @import "includes/nav.css";

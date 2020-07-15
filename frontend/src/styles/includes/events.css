@@ -1,0 +1,13 @@
+.events {
+  display: grid;
+  grid-gap: var(--gap);
+
+  &__title {
+    margin: 0 0 1.5em;
+  }
+}
+
+.events-aside {
+  display: grid;
+  grid-gap: var(--gap);
+}

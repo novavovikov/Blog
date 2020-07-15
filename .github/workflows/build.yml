@@ -1,0 +1,35 @@
+name: Blog
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    env:
+      FLASK_ENV: production
+      USER_ID: $(id -u)
+      GROUP_ID: $(id -g)
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "::set-env name=PROD_HOST::${{ secrets.PROD_HOST }}"
+      - name: Setup SSH
+        uses: kielabokkie/ssh-key-and-known-hosts-action@v1.0.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-host: ${{ secrets.PROD_HOST }}
+
+      - name: Build images
+        run: |
+          docker-compose -f docker-compose.yml build --no-cache
+          docker-compose -f docker-compose.yml push
+      - name: Deploy
+        run: |
+          export DOCKER_HOST=ssh://${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}
+          docker-compose -f docker-compose.yml pull
+          docker-compose -f docker-compose.yml up --force-recreate -d
+          unset DOCKER_HOST

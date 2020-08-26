@@ -13,16 +13,16 @@ services:
     environment:
       - FLASK_ENV
       - GIT_PYTHON_REFRESH=quiet
-      - ARTICLES_URL=https://github.com/novavovikov/events/tree/master/backend/data/articles
+      - ARTICLES_URL=https://github.com/novavovikov/Blog/tree/master/backend/data/articles
     depends_on:
       - redis
     networks:
-      - events_net
+      - blog_net
 
   redis:
     image: "redis:alpine"
     networks:
-      - events_net
+      - blog_net
 
   frontend:
     build: frontend
@@ -33,11 +33,11 @@ services:
       - 3000:3000
     command: sh -c "npm run start"
     networks:
-      - events_net
+      - blog_net
 
 volumes:
   assets:
 
 networks:
-  events_net:
-    name: events_net
+  blog_net:
+    name: blog_net

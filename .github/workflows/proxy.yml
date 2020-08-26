@@ -1,0 +1,26 @@
+name: Blog-proxy
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: echo "::set-env name=PROD_HOST::${{ secrets.PROD_HOST }}"
+      - name: Setup SSH
+        uses: kielabokkie/ssh-key-and-known-hosts-action@v1.0.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-host: ${{ secrets.PROD_HOST }}
+
+      - name: Run shell script
+        run: |
+          export DOCKER_HOST=ssh://${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:${{ secrets.PROD_PORT }}
+          ./run-proxy.sh
+          unset DOCKER_HOST

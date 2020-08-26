@@ -2,7 +2,7 @@
 set -e
 
 #settings
-export NETWORK="events_net"
+export NETWORK="blog_net"
 export DOCKERFILE="$PWD/proxy/Dockerfile"
 export DOCKERFILE_TAG="proxy_nginx"
 

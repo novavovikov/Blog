@@ -1,4 +1,4 @@
-name: Blog
+name: Blog-app
 
 on:
   push:
@@ -16,6 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - run: echo "::set-env name=PROD_HOST::${{ secrets.PROD_HOST }}"
       - name: Setup SSH
         uses: kielabokkie/ssh-key-and-known-hosts-action@v1.0.1
@@ -27,6 +28,7 @@ jobs:
         run: |
           docker-compose -f docker-compose.yml build --no-cache
           docker-compose -f docker-compose.yml push
+
       - name: Deploy
         run: |
           export DOCKER_HOST=ssh://${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:${{ secrets.PROD_PORT }}

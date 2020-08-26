@@ -24,14 +24,9 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh-host: ${{ secrets.PROD_HOST }}
 
-      - name: Build images
-        run: |
-          docker-compose -f docker-compose.yml build --no-cache
-          docker-compose -f docker-compose.yml push
-
-      - name: Deploy
+      - name: Build and Deploy
         run: |
           export DOCKER_HOST=ssh://${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:${{ secrets.PROD_PORT }}
-          docker-compose -f docker-compose.yml pull
+          docker-compose -f docker-compose.yml build --no-cache
           docker-compose -f docker-compose.yml up --force-recreate -d
           unset DOCKER_HOST

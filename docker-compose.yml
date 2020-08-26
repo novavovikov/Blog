@@ -16,6 +16,7 @@ services:
       - ARTICLES_URL=https://github.com/novavovikov/Blog/tree/master/backend/data/articles
     depends_on:
       - redis
+      - frontend
     networks:
       - blog_net
 

@@ -31,7 +31,7 @@ services:
       - assets:/app/dist:rw
     ports:
       - 3000:3000
-    command: sh -c "npm run start"
+    command: sh -c "npm run build"
     networks:
       - blog_net
 

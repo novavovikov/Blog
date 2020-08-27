@@ -11,7 +11,7 @@ services:
       - assets:/app/templates/assets:ro
     restart: on-failure
     environment:
-      - FLASK_ENV
+      - FLASK_ENV=production
       - GIT_PYTHON_REFRESH=quiet
       - ARTICLES_URL=https://github.com/novavovikov/Blog/tree/master/backend/data/articles
     depends_on:

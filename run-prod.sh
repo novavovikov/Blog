@@ -4,6 +4,9 @@ set -e
 export USER_ID=$(id -u)
 export GROUP_ID=$(id -g)
 
+export DOCKER_CLIENT_TIMEOUT=120
+export COMPOSE_HTTP_TIMEOUT=120
+
 #settings
 NETWORK="blog_net"
 PROXY_DOCKERFILE="$PWD/proxy/Dockerfile"

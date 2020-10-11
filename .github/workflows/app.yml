@@ -3,7 +3,7 @@ name: Blog-app
 on:
   push:
     branches:
-    - master
+      - master
 
 jobs:
   build:
@@ -21,8 +21,8 @@ jobs:
 
       - name: Build images
         run: |
-          docker-compose -f docker-compose.yml build --no-cache
-          docker-compose -f docker-compose.yml push
+          docker-compose -f docker-compose.yml -f docker-compose.prod.yml build --no-cache
+          docker-compose -f docker-compose.yml -f docker-compose.prod.yml push
 
       - name: Deploy
         env:
@@ -31,6 +31,6 @@ jobs:
           GROUP_ID: $(id -g)
         run: |
           export DOCKER_HOST=ssh://${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:${{ secrets.PROD_PORT }}
-          docker-compose -f docker-compose.yml pull
-          docker-compose -f docker-compose.yml up --force-recreate -d
+          docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull
+          docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --force-recreate -d
           unset DOCKER_HOST

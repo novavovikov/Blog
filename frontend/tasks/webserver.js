@@ -5,6 +5,7 @@ const bs = browserSync.create()
 
 gulp.task('webserver', () => {
   bs.init({
+    open: false,
     proxy: {
       target: 'http://backend:5000',
     },

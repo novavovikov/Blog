@@ -1,6 +1,6 @@
 # Blog generated from md files
 
-[Example here](http://events.novavovikov.ru/)
+[Example here](https://events.novavovikov.ru/)
 
 ## Installation
 You will need Docker to run site lifecycle tasks
@@ -18,19 +18,9 @@ You will need Docker to run site lifecycle tasks
 
 
 ### prod mode
-backend:
+backend with proxy:
 ```shell script
-export FLASK_ENV='production'
-export USER_ID=$(id -u)
-export GROUP_ID=$(id -g)
-
-docker-compose build --no-cache
-docker-compose up -d --force-recreate
-```
-
-proxy:
-```shell script
-./run-proxy.sh
+./run-prod.sh
 ```
 
 ## Writing content

@@ -21,5 +21,5 @@ docker build --no-cache \
 
 docker run --network "$NETWORK" \
   --name "$PROXY_DOCKERFILE_TAG" \
-  -p 8090:80 -p 443:443 \
+  -p 80:80 -p 443:443 \
   -d "$PROXY_DOCKERFILE_TAG"

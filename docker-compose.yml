@@ -31,6 +31,7 @@ services:
     image: "node:14.13.1-stretch"
     build:
       context: ./frontend
+      dockerfile: ./Dockerfile
     ports:
       - 3000:3000
     volumes:

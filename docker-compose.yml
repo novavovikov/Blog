@@ -28,7 +28,6 @@ services:
       - blog_net
 
   frontend:
-    image: "node:14.13.1-stretch"
     build:
       context: ./frontend
       dockerfile: ./Dockerfile

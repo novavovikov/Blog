@@ -1,3 +1,3 @@
 FROM nginx:latest
 
-COPY proxy/conf/ /etc/nginx/
+COPY ./conf/ /etc/nginx/

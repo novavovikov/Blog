@@ -6,4 +6,7 @@ services:
       - FLASK_ENV=development
 
   frontend:
+    image: "node:14.13.1-stretch"
+    ports:
+      - 3000:3000
     command: sh -c "npm i && npm run start"

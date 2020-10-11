@@ -6,4 +6,7 @@ services:
       - FLASK_ENV=production
 
   frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
     command: sh -c "npm i && npm run build"

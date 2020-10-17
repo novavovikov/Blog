@@ -3,75 +3,79 @@
 {% from 'includes/share.html' import render_share_block %}
 
 {% block styles %}
-  <link rel="stylesheet" href={{ url_for('static', filename='styles/markdown.css' ) }}>
+<link rel="stylesheet" href={{ url_for('static', filename='styles/markdown.css' ) }}>
 {% endblock %}
 
 {% block content %}
-  <div class="article">
-    {% if False %}
-      <div class="sidebar">
-        <div class="sidebar-item">
-          <a href="{{ article_url }}" target="_blank" title="Редактировать на GitHub">
-            Edit
-          </a>
-        </div>
-        <div class="sidebar-item">
-          <button>
-            Get five
-          </button>
-        </div>
-        <div class="sidebar-item">
-          <button>
-            Bookmarks
-          </button>
-        </div>
-      </div>
-    {% endif %}
-
-    <div class="article__header">
-      <h2 class="article__title">
-        {{ settings.title }}
-      </h2>
-      {% if settings.description %}
-        <p class="article__description">{{ settings.description }}</p>
-      {% endif %}
-
-      {% if article_url %}
-        <div>
-          <a href="{{ article_url }}" target="_blank" class="article-edit" title="Редактировать на GitHub">
-            <div class="icon article-edit__icon">
-              {% include 'assets/icons/edit.svg' %}
-            </div>
-            Редактировать на GitHub
-          </a>
-        </div>
-      {% endif %}
+<div class="article">
+  {% if False %}
+  <div class="sidebar">
+    <div class="sidebar-item">
+      <a href="{{ article_url }}" target="_blank" title="Редактировать на GitHub">
+        Edit
+      </a>
     </div>
-
-    <div class="article-controls">
-      <div class="article__date">
-        {{ settings.created_date | timestamp_to_date }} • {{ settings.reading_time }} мин. чтения
-      </div>
-
-      {{ render_share_block(share, settings) }}
+    <div class="sidebar-item">
+      <button>
+        Get five
+      </button>
     </div>
-
-    {% if settings.cover %}
-      <img src="{{ settings.cover }}" alt="{{ settings.title }}" class="article__img">
-    {% endif %}
-
-    <div class="article__content">
-      <div class="markdown-body">
-        {{ content | safe }}
-      </div>
-
-      {% if tags %}
-
-        <div class="article-tags">
-          {{ render_tags(tags) }}
-        </div>
-      {% endif %}
+    <div class="sidebar-item">
+      <button>
+        Bookmarks
+      </button>
     </div>
   </div>
+  {% endif %}
+
+  <div class="article__header">
+    <h2 class="article__title">
+      {{ settings.title }}
+    </h2>
+    {% if settings.description %}
+    <p class="article__description">{{ settings.description }}</p>
+    {% endif %}
+
+    {% if article_url %}
+    <div>
+      <a href="{{ article_url }}" target="_blank" class="article-edit" title="Редактировать на GitHub">
+        <div class="icon article-edit__icon">
+          {% include 'assets/icons/edit.svg' %}
+        </div>
+        Редактировать на GitHub
+      </a>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="article-controls">
+    <div class="article__date">
+      {% include 'includes/date-duration.html' %}
+    </div>
+
+    {{ render_share_block(share, settings) }}
+  </div>
+
+  {% if settings.cover %}
+  <img src="{{ settings.cover }}" alt="{{ settings.title }}" class="article__img">
+  {% endif %}
+
+  <div class="article__content">
+    <div class="markdown-body">
+      {{ content | safe }}
+    </div>
+
+    {% if tags %}
+
+    <div class="article-tags">
+      {{ render_tags(tags) }}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}
 

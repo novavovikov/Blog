@@ -15,6 +15,10 @@
   margin: 0 0 var(--gap);
   transition: var(--transition-m);
 
+  &:hover {
+    box-shadow: var(--shadow-secondary);
+  }
+
   &:last-child {
     margin-bottom: 0;
   }

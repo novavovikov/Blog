@@ -35,6 +35,11 @@ def get_nav(place: str):
         return yaml.safe_load(file).get(place, ())
 
 
+@app.template_global('now')
+def now():
+    return datetime.utcnow()
+
+
 @app.template_filter('get_social_url')
 def get_social_url(system: str, article):
     return article.get('cover', system)

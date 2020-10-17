@@ -1,12 +1,14 @@
 @import "includes/_variables.css";
 @import "includes/_base.css";
 @import "includes/_layout.css";
+@import "includes/hl.js.css";
 @import "includes/menu.css";
 @import "includes/input.css";
 @import "includes/btn.css";
 @import "includes/graphics.css";
 @import "includes/header.css";
 @import "includes/footer.css";
+@import "includes/duration.css";
 @import "includes/theme.css";
 @import "includes/tags.css";
 @import "includes/logo.css";

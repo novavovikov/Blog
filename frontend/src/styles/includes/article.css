@@ -2,6 +2,7 @@
   background: var(--c-bg-accent);
   width: 100%;
   max-width: 760px;
+  border-radius: var(--radius);
   margin: 0 auto;
 
   &:hover &-edit {

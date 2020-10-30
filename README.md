@@ -1,7 +1,5 @@
 # Blog generated from md files
 
-[Example here](https://events.novavovikov.ru/)
-
 ## Installation
 You will need Docker to run site lifecycle tasks
 
